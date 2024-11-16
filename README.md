@@ -11,6 +11,7 @@ This is an owned calculator. It performs the basic operations,
 - div
 - mul
 - multiple_add
+- mul_div
 
 However, only a specific signer may call the function mul. This is intentional because we want to demonstrate how to apply the famous Solidity `onlyOwner` modifier in Solana programs.
 
