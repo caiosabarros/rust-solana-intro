@@ -43,14 +43,10 @@ Rust uses lots of concepts, but it does not have a concept of a `contract` or cl
 
 # Useful Websites
 
-{Make a list of websites that you found helpful in this project}
-
 - [Rust Docs](https://doc.rust-lang.org/reference/introduction.html)
 - [RareSkills Solana Course](https://www.rareskills.io/solana-tutorial#solana-course)
 
 # Future Work
-
-{Make a list of things that you need to fix, improve, and add in the future.}
 
 - Test good scenarios for all the functions
 - Test bad scenarios for all the functions
