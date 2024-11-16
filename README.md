@@ -28,7 +28,7 @@ Along the way I learned a lot about how Rust syntax can be "translated" into Sol
 
 [Software Demo Video](http://youtube.link.goes.here)
 
-# Development Environment
+## Development Environment
 
 It is assumed the user has the following tools installed
 - [Solana]()
@@ -36,17 +36,16 @@ It is assumed the user has the following tools installed
 - [Chai]()
 - [Typescript]()
 
-{Describe the programming language that you used and any libraries.}
-# Rust
+## Rust
 
 Rust uses lots of concepts, but it does not have a concept of a `contract` or class-like type similar to Solidity or JS because it is not an OOP programming language. It works using modules, functions, structs and it is statically typed.
 
-# Useful Websites
+## Useful Websites
 
 - [Rust Docs](https://doc.rust-lang.org/reference/introduction.html)
 - [RareSkills Solana Course](https://www.rareskills.io/solana-tutorial#solana-course)
 
-# Future Work
+## Future Work
 
 - Test good scenarios for all the functions
 - Test bad scenarios for all the functions
