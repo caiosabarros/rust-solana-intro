@@ -31,10 +31,12 @@ Along the way I learned a lot about how Rust syntax can be "translated" into Sol
 ## Development Environment
 
 It is assumed the user has the following tools installed
-- [Solana]()
+- [Solana CLI]()
 - [Anchor]()
 - [Chai]()
 - [Typescript]()
+- [Yarn]()
+- [Rust]()
 
 ## Rust
 
