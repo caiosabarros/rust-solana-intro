@@ -2,6 +2,8 @@ use anchor_lang::prelude::*;
 
 declare_id!("641bKqcLjVwpPCbMRhAq2ZZJdJaTvEik28qJ8jjSDHJw");
 
+const OWNER: &str = "4prmvep23UCmikgs6oeY1XmXSasvNp8W1HQRKPkgBiEi"; // my local account
+
 #[program]
 pub mod owned_calculator {
     use super::*;
@@ -27,7 +29,7 @@ pub mod owned_calculator {
         Ok(())
     }
 
-    pub fn multipleAdd(ctx: Context<Initialize>, numbers: Vec<u64>) -> Result<()> {
+    pub fn multiple_add(ctx: Context<Initialize>, numbers: Vec<u64>) -> Result<()> {
         let mut sum:u64 = 0;
         for num in &numbers {
             sum += num;
@@ -35,6 +37,34 @@ pub mod owned_calculator {
         msg!("The total sum is {}", sum);
         Ok(())
     }
+
+    #[access_control(check(&ctx))]
+    pub fn mul(ctx: Context<OnlyOwner>, a:u64, b:u64) -> Result<()> {
+        msg!("Owner, your unsafe mul is {}", a * b); // this does not check for overflows
+        Ok(())
+    }
+}
+
+fn check(ctx: &Context<OnlyOwner>) -> Result<()> {
+    
+    require_keys_eq!(
+        ctx.accounts.signer_account.key(),
+        OWNER.parse::<Pubkey>().unwrap(),
+        OnlyOwnerErr::Strange
+        );
+
+    Ok(())
+}
+
+#[error_code]
+pub enum OnlyOwnerErr {
+    #[msg("You are a strange, not the owner!")]
+    Strange,
+}
+
+#[derive(Accounts)]
+pub struct OnlyOwner<'info> {
+    signer_account: Signer<'info>,
 }
 
 #[error_code]

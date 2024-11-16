@@ -19,4 +19,10 @@ describe("owned_calculator", () => {
     const tx = await program.methods.add(new anchor.BN(1), new anchor.BN(2)).rpc();
     console.log("tx sig", tx);
   });
+
+  it("Owner multiplication", async () => {
+    // mul
+    const tx = await program.methods.mul(new anchor.BN(2), new anchor.BN(3)).accounts({signerAccount: program.provider.publicKey}).rpc();
+    console.log("tx sig", tx);
+  });
 });
