@@ -26,17 +26,19 @@ Along the way I learned a lot about how Rust syntax can be "translated" into Sol
 
 ## WalkThrough
 
-[Software Demo Video](http://youtube.link.goes.here)
+[Solana Owned Calculator Demo Video](https://www.youtube.com/watch?v=5_0WghdrOyk)
 
 ## Development Environment
 
 It is assumed the user has the following tools installed
-- [Solana CLI]()
-- [Anchor]()
-- [Chai]()
-- [Typescript]()
-- [Yarn]()
-- [Rust]()
+- Solana CLI
+- Anchor
+- Chai
+- Typescript
+- Yarn
+- Rust
+
+All of these can be downloaded following the instructions at [RareSkills Hello World Solana](https://www.rareskills.io/post/hello-world-solana)
 
 ## Rust
 

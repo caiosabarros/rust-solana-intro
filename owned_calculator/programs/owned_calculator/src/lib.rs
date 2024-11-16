@@ -43,7 +43,20 @@ pub mod owned_calculator {
         for num in &numbers { // basic for loop
             sum += num;
         }
-        msg!("The total sum is {}", sum);
+        msg!("The total sum is {}", sum); 
+        Ok(())
+    }
+
+    pub fn mul_div(ctx: Context<Initialize>, numbers: Vec<u64>) -> Result<()> {
+        // anchor helper fn-like macro
+        require!(numbers.len() == 3, InvalidArg::WrongQuantity);
+        // values can be read from vectors like as they are in arrays in other languages
+        // these are 0-indexed here as well
+        let mut result = numbers[0] * numbers[1];
+
+        result /= numbers[2];
+        
+        msg!("mul_div is {:?}", result);
         Ok(())
     }
 
@@ -84,6 +97,10 @@ pub struct OnlyOwner<'info> {
 pub enum InvalidArg {
     #[msg("CannotDivideByZero")]
     DivisionByZero,
+    #[msg("WrongQuantityOfArgs")]
+    WrongQuantity,
+    #[msg("Overflow")]
+    Overflow,
 }
 
 #[derive(Accounts)] // it could have been called anything, like Empty, Dog, etc. Anchor defaults it to Initialize

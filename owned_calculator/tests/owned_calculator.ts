@@ -48,4 +48,17 @@ describe("owned_calculator", () => {
     console.log("tx sig", tx);
   });
 
+  it("mulDiv fn", async () => {
+    const tx = await program.methods.mulDiv([new anchor.BN(1e3), new anchor.BN(2), new anchor.BN(1e3)]).rpc();
+    console.log("tx sig", tx);
+  });
+
+  it("mulDiv fn overflow", async () => {
+    try {                                                   // u64.max
+      const tx = await program.methods.mulDiv([new anchor.BN(18446744073709551614), new anchor.BN(2), new anchor.BN(1e3)]).rpc();
+    } catch (_err) {
+      console.log("Overflow happened in unsafe multiplication!");
+    }
+  });
+
 });
